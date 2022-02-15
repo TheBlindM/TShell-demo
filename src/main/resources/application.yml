@@ -1,0 +1,30 @@
+micronaut:
+  application:
+    name: TShell
+  server:
+    port: 8081
+netty:
+  default:
+    allocator:
+      max-order: 3
+
+jackson:
+  bean-introspection-module: true
+#数据源配置的开始
+datasources:
+  default:
+    url: jdbc:h2:~/Tshell/ShellDB
+    username: "tshell"
+    password: "tshell"
+    driverClassName: org.h2.Driver
+
+jpa:
+  default:
+    entity-scan:
+      packages:
+        - 'com.TShell'
+      classpath: true
+    properties:
+      hibernate:
+        hbm2ddl:
+          auto: update
